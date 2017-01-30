@@ -8,16 +8,20 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.17.0",
+    "codecov": "^1.0.1",
     "eslint": "^3.13.1",
     "eslint-config-airbnb-base": "^11.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-node": "^3.0.5",
     "lint-staged": "^3.2.9",
+    "nyc": "^10.1.2",
     "pre-commit": "^1.2.2"
   },
   "scripts": {
     "lint": "eslint src test",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "test": "nyc ava",
+    "codecov": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
@@ -60,5 +64,9 @@
   "dependencies": {
     "co": "^4.6.0",
     "verror": "^1.9.0"
+  },
+  "ava": {
+    "files": ["test/**/*.js"],
+    "source": ["src/**/*.js"]
   }
 }
