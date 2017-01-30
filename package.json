@@ -1,0 +1,64 @@
+{
+  "name": "json-schema-bundler",
+  "version": "0.0.1",
+  "description": "JSON Schema bundler",
+  "main": "index.js",
+  "repository": "https://github.com/pirosikick/json-schema-bundler.git",
+  "author": "Hiroyuki Anai <pirosikick@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^3.0.5",
+    "lint-staged": "^3.2.9",
+    "pre-commit": "^1.2.2"
+  },
+  "scripts": {
+    "lint": "eslint src test",
+    "lint-staged": "lint-staged"
+  },
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "node"
+    ],
+    "extends": [
+      "airbnb-base",
+      "plugin:node/recommended"
+    ],
+    "parseOptions": {
+      "ecmaVersion": 2015
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "never"
+        }
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "verror": "^1.9.0"
+  }
+}
