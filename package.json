@@ -63,10 +63,15 @@
   },
   "dependencies": {
     "co": "^4.6.0",
+    "resolve": "^1.2.0",
     "verror": "^1.9.0"
   },
   "ava": {
-    "files": ["test/**/*.js"],
-    "source": ["src/**/*.js"]
+    "files": [
+      "test/**/*.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ]
   }
 }
