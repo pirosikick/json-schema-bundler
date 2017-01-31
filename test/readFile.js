@@ -4,7 +4,7 @@ const readFile = require('../src/readFile');
 test('readFile("./fixtures/a.json")', t => (
   readFile(`${__dirname}/fixtures/a.json`).then(data => {
     t.deepEqual(JSON.parse(data), {
-      $ref: 'file:./b.json',
+      $ref: 'module:./b.json',
     });
   })
 ));

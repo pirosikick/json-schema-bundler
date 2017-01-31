@@ -1,24 +1,37 @@
 const assert = require('assert');
 const path = require('path');
-const url = require('url');
 const VError = require('verror');
 const co = require('co');
 const readFile = require('./readFile');
+const resolve = require('./resolve');
 
-function resolveRef(ref, originFile) {
+function resolveRef(ref, baseFile) {
   return co(function* resolveRefInner() {
-    const { protocol, path: filepath } = url.parse(ref);
-    if (protocol === 'file:') {
-      const dir = path.dirname(originFile);
-      const file = path.resolve(dir, filepath);
-      const data = yield readFile(file);
-      return JSON.parse(data);
+    if (/^module:(.+)/.test(ref)) {
+      const id = RegExp.$1;
+      const basedir = path.dirname(baseFile);
+      const file = yield resolve(id, basedir);
+      const extname = path.extname(file);
+      switch (extname) {
+        case '.js': {
+          // eslint-disable-next-line global-require, import/no-dynamic-require
+          return require(file);
+        }
+
+        case '.json': {
+          const data = yield readFile(file);
+          return JSON.parse(data);
+        }
+
+        default:
+          return undefined;
+      }
     }
     return undefined;
   }).catch(cause => {
     throw new VError(
       cause,
-      "failed to resolve $ref: '%s' in '%s'", ref, originFile
+      "failed to resolve $ref: '%s' in '%s'", ref, baseFile
     );
   });
 }
