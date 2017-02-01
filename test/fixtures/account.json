@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "definitions": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "title": "account email",
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "properties": {
+    "name": {
+      "$ref": "#/definitions/name"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "type"
+  ]
+}

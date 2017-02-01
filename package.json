@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "co": "^4.6.0",
+    "lodash.result": "^4.5.2",
     "resolve": "^1.2.0",
     "verror": "^1.9.0"
   },

@@ -20,3 +20,14 @@ test('bundle("./fixtures/c.json")', t => {
     });
   });
 });
+
+test('bundle("./fixtures/pointer-ref.json")', t => {
+  const file = `${__dirname}/fixtures/pointer-ref.json`;
+  return bundle(file).then(schema => {
+    t.deepEqual(schema, {
+      title: 'account email',
+      type: 'string',
+      format: 'email',
+    });
+  });
+});
