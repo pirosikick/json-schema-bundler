@@ -1,6 +1,6 @@
 const test = require('ava');
 const path = require('path');
-const resolve = require('../src/resolve');
+const resolve = require('../lib/resolve');
 
 test('resolve("./fixtures/a.json")', t => {
   const id = './fixtures/a.json';

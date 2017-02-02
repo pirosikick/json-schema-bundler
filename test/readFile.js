@@ -1,5 +1,5 @@
 const test = require('ava');
-const readFile = require('../src/readFile');
+const readFile = require('../lib/readFile');
 
 test('readFile("./fixtures/a.json")', t => (
   readFile(`${__dirname}/fixtures/a.json`).then(data => {

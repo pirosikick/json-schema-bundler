@@ -2,7 +2,7 @@
   "name": "json-schema-bundler",
   "version": "0.0.1",
   "description": "JSON Schema bundler",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/pirosikick/json-schema-bundler.git",
   "author": "Hiroyuki Anai <pirosikick@gmail.com>",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "pre-commit": "^1.2.2"
   },
   "scripts": {
-    "lint": "eslint src test",
+    "lint": "eslint lib test",
     "lint-staged": "lint-staged",
     "test": "nyc ava",
     "codecov": "nyc report --reporter=lcov > coverage.lcov && codecov"
@@ -72,7 +72,7 @@
       "test/**/*.js"
     ],
     "source": [
-      "src/**/*.js"
+      "lib/**/*.js"
     ]
   }
 }

@@ -1,5 +1,5 @@
 const test = require('ava');
-const bundle = require('../src/index');
+const bundle = require('../lib/index');
 
 test('bundle("./fixtures/a.json")', t => {
   const file = `${__dirname}/fixtures/a.json`;
