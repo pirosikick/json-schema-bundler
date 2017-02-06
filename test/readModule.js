@@ -14,3 +14,8 @@ test('./fixtures/d', testReadModule, './fixtures/d', {
   type: 'string',
   example: 'd.js',
 });
+
+test('./fixtures/yaml-file.yml', testReadModule, './fixtures/yaml-file.yml', {
+  type: 'string',
+  example: 'yaml file',
+});
