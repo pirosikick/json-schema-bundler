@@ -15,7 +15,8 @@
     "eslint-plugin-node": "^3.0.5",
     "lint-staged": "^3.2.9",
     "nyc": "^10.1.2",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "sinon": "^1.17.7"
   },
   "scripts": {
     "lint": "eslint lib test",
@@ -63,6 +64,7 @@
   },
   "dependencies": {
     "co": "^4.6.0",
+    "js-yaml": "^3.7.0",
     "jsonschema": "^1.1.1",
     "lodash.result": "^4.5.2",
     "resolve": "^1.2.0",
