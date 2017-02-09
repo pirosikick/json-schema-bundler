@@ -1,7 +1,27 @@
 const test = require('ava');
 const bundle = require('../lib/index');
 
-test('bundle("./fixtures/a.json")', t => {
+test.skip('bundle("./fixtures/entry.json")', t => {
+  const file = `${__dirname}/fixtures/entry.json`;
+  return bundle(file).then(schema => {
+    t.deepEqual(schema, {
+      type: 'object',
+      definitions: {
+        'schema-a': {
+          title: 'schema-a',
+          type: 'string',
+        },
+      },
+      properties: {
+        a: {
+          $ref: '#/definitions/schema-a',
+        },
+      },
+    });
+  });
+});
+
+test.skip('bundle("./fixtures/a.json")', t => {
   const file = `${__dirname}/fixtures/a.json`;
   return bundle(file).then(schema => {
     t.deepEqual(schema, {
@@ -11,7 +31,7 @@ test('bundle("./fixtures/a.json")', t => {
   });
 });
 
-test('bundle("./fixtures/c.json")', t => {
+test.skip('bundle("./fixtures/c.json")', t => {
   const file = `${__dirname}/fixtures/c.json`;
   return bundle(file).then(schema => {
     t.deepEqual(schema, {
@@ -21,7 +41,7 @@ test('bundle("./fixtures/c.json")', t => {
   });
 });
 
-test('bundle("./fixtures/pointer-ref.json")', t => {
+test.skip('bundle("./fixtures/pointer-ref.json")', t => {
   const file = `${__dirname}/fixtures/pointer-ref.json`;
   return bundle(file).then(schema => {
     t.deepEqual(schema, {
