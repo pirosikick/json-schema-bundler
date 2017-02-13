@@ -1,14 +1,23 @@
 const test = require('ava');
-const co = require('co');
 const reduceAsync = require('../lib/reduceAsync');
 
-test(function* (t) {
+test('array', function* (t) {
   const result = yield reduceAsync(
     [1, 2, 3],
-    co.wrap(function* (res, num) {
-      return yield Promise.resolve(res + num);
-    }),
+    (res, num) => Promise.resolve(res + num),
     Promise.resolve(0)
   );
   t.is(result, 6);
+});
+
+test('array', function* (t) {
+  const result = yield reduceAsync(
+    { a: 1, b: 2, c: 3 },
+    (arr, num, key) => {
+      arr.push([key, num]);
+      return Promise.resolve(arr);
+    },
+    []
+  );
+  t.is(result, [['a', 1], ['b', 2], ['c', 3]]);
 });
