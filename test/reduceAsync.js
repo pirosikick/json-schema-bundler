@@ -19,5 +19,5 @@ test('array', function* (t) {
     },
     []
   );
-  t.is(result, [['a', 1], ['b', 2], ['c', 3]]);
+  t.deepEqual(result, [['a', 1], ['b', 2], ['c', 3]]);
 });

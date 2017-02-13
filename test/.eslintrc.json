@@ -1,7 +1,8 @@
 {
   "rules": {
     "node/no-unpublished-require": ["error", {
-      "allowModules": ["ava"]
-    }]
+      "allowModules": ["ava", "sinon"]
+    }],
+    "func-names": ["error", "never"]
   }
 }
